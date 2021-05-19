@@ -1,0 +1,142 @@
+<style>
+    #mainMenu {
+        display: none;
+    }
+    body {
+        font-family: 'Exo 2', sans-serif;
+    padding: 0;
+    margin: 0;
+    background: #000;
+    color: #fff;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+
+/* #mainHeader */
+#mainHeader {
+    min-width: 100vw;
+    max-width: 100vw;
+    width: 100vw;
+    height: 100px;
+    min-height: 100px;
+    max-height: 100px;
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: inset 5px red;
+    display: inline-flex;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1.0);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.header-section {
+    width: 33%;
+    height: 100px;
+}
+.header-section img {
+    max-height: 90px;
+    margin: 5px;
+}
+.header-center {
+    text-align: center;
+}
+.header-center h1 {
+    color: #fff;
+    line-height: 50px;
+
+}
+/* Main Container */
+.container {
+    background: #333;
+    background-image: url("https://4.bp.blogspot.com/-Px99__SAlNY/V0zUPjSoZhI/AAAAAAAAGMI/FmpAbDjhdXEoxRJIPjrVcBPsdxQx-_IGwCKgB/s1600/red-black-white-abstract-wallpaper.jpg");
+    background-size: cover;
+    backdrop-filter: blur(8px);
+    position: fixed;
+    top: 100px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 100vw;
+    max-width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 10px;
+
+}
+</style>
+
+<h1><%= title %></h1>
+
+<div class="create-account">
+    <form action="/users/register" method="POST">
+        <div class="input-data">
+
+            <label for="name" style="color: #fff"> First Name</label>
+            <input
+            type="name"
+            id="fname"
+            name="fname"
+            class="input-control login-input"
+            placeholder="Enter First Name"
+            value="<%= typeof name != 'undefined' ? fname : '' %>"
+            />
+          </div>
+
+          <div class="input-data">
+
+            <label for="name" style="color: #fff"> Last Name</label>
+            <input
+            type="name"
+            id="lname"
+            name="lname"
+            class="input-control login-input"
+            placeholder="Enter Last Name"
+            value="<%= typeof name != 'undefined' ? lname : '' %>"
+            />
+          </div>
+
+          <div class="input-data">
+
+            <label for="email" style="color: #fff">Email</label>
+            <input
+            type="email"
+            id="email"
+            name="email"
+            class="input-control login-input"
+            placeholder="Enter Email"
+            value="<%= typeof email != 'undefined' ? email : '' %>"
+            />
+          </div>
+
+          <div class="input-data">
+
+            <label for="password" style="color: #fff">Password</label>
+            <input
+            type="password"
+            id="password"
+            name="password"
+            class="input-control login-input"
+            placeholder="Create Password"
+            value="<%= typeof password != 'undefined' ? password : '' %>"
+            />
+          </div>
+
+          <div class="input-data">
+
+            <label for="password2" style="color: #fff">Confirm Password</label>
+            <input
+            type="password"
+            id="password2"
+            name="password2"
+            class="input-control login-input"
+            placeholder="Confirm Password"
+            value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+            />
+          </div>
+
+          <button type="submit">Register <i class="fas fa-sign-in-alt"></i></button>
+
+    </form>
+</div>

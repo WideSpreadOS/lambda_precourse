@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lambda School - Project</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div id="mainHeader">
+        <div class="header-section header-left">
+            <img src="/images/lambda-logo.png" alt="Lambda Logo">
+        </div>
+        <div class="header-section header-center">
+            <h1 class="stay">Student Portal</h1>
+        </div>
+        <div class="header-section header-right"></div>
+    </div>
+    <div id="mainMenu">
+        <ul>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/desk">Your Desk</a></li>
+            <li><a href="/classroom">Classroom</a></li>
+            <li><a href="/project-manager">Project Manager</a></li>
+            <li><a href="/code-editor">Code Editor</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <li><a href="/flashcards">Flashcards</a></li>
+            <li><a href="/typing">Typing</a></li>
+            <li><a href="/social">Socialize</a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+        </ul>
+        <div class="logout">
+            <a href="/users/logout" style="color: red; font-weight: bold; text-shadow: none;">Logout</a>
+        </div>
+    </div>
+    <div class="container">
+        <%- body %>
+    </div>
+</body>
+</html>

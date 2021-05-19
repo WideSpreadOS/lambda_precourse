@@ -1,0 +1,313 @@
+<style>
+    .tab {
+        background: rgba(255, 0, 0, 0.3);
+        width: 37.35%;
+        padding: 10px;
+        text-align: center;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        backdrop-filter: blur(4px);
+        margin-left: 20px;
+    }
+    .tab button {
+        width: 30%;
+        padding: 5px;
+        background: rgba(0, 0, 0, 0.5);
+        outline: none;
+        border: none;
+        border-radius: 4px;
+        color: #fff;
+        cursor: pointer;
+    }
+    .editor-container {
+        width: 85%;
+        display: inline-flex;
+        margin-left: 20px;
+    }
+    .editor-shortcuts {
+        width: 100%;
+        background: #111;
+        overflow-x: scroll;
+    }
+    .editor-shortcuts ol {
+        display: inline-flex;
+        width: 100%;
+        padding-inline-start: 10px;
+    }
+    .editor-shortcuts li {
+        margin-right: 10px;
+        list-style: none;
+        background: #333;
+        padding: 5px;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 4px;
+        width: fit-content;
+        color: rgba(255, 255, 255, 1.0);
+        text-shadow: 0 0 2px rgba(255, 0, 0, 0.5);
+        box-shadow: 0 0 4px rgba(255, 0, 0, 0.2);
+
+    }
+    .tabcontent {
+        width: 45%;
+        text-align: center;
+        background: rgba(255, 0, 0, 0.3);
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        box-shadow: 5px 0 5px #000;
+    }
+    .tabcontent textarea {
+        margin: 10px;
+        padding: 8px;
+        width: 95%;
+        max-width: 95%;
+        min-width: 95%;
+        height: 500px;
+        max-height: 500px;
+        min-height: 500px;
+        
+        background: #333;
+        border-radius: 6px;
+        outline: none;
+        border: none;
+    }
+    #html {
+        color: lightskyblue;
+    }
+    #css {
+        color: pink;
+    }
+    #js {
+        color: lawngreen;
+    }
+    #code {
+        width: 45%;
+        margin-left: 5%;
+        border-radius: 6px;
+        outline: none;
+        border: none;
+        background: rgba(170, 170, 170, 0.75);
+        backdrop-filter: blur(4px);
+    }
+    #html::placeholder {
+        color: lightskyblue;
+    }
+    #css::placeholder {
+        color: pink;
+    }
+    #js::placeholder {
+        color: lawngreen;
+    }
+</style>
+
+<h1><%= title %></h1>
+
+
+<div class="tab">
+    <button class="tablinks" id="defaultOpen" onclick="openEditor(event, 'htmlTab')">HTML</button>
+    <button class="tablinks" onclick="openEditor(event, 'cssTab')">CSS</button>
+    <button class="tablinks" onclick="openEditor(event, 'jsTab')">JavaScript</button>
+</div>
+<div class="editor-container">
+<div id="htmlTab" class="tabcontent">
+    <div class="editor-shortcuts">
+        <ol onclick="addText(event)">
+            <li>&lt;div id=""&gt;
+
+&lt;/div&gt;
+</li>
+            <li>&lt;div class=""&gt;
+
+&lt;/div&gt;
+</li>
+            <li>&lt;/div&gt;
+
+</li>
+            <li>&lt;h1&gt;&lt;/h1&gt;
+
+</li>
+            <li>&lt;h2&gt;&lt;/h2&gt;
+
+</li>
+            <li>&lt;h3&gt;&lt;/h3&gt;
+
+</li>
+            <li>&lt;h4&gt;&lt;/h4&gt;
+
+</li>
+            <li>&lt;h5&gt;&lt;/h5&gt;
+
+</li>
+            <li>&lt;h6&gt;&lt;/h6&gt;
+
+</li>
+            <li>&lt;p&gt;&lt;p/&gt;
+
+</li>
+            <li>&lt;img src="" alt=""/&gt;
+
+</li>
+            <li>&lt;form id="" action="" method="" enctype=""&gt;
+
+</li>
+            <li>&lt;/form&gt;
+
+</li>
+            <li>&lt;label for="" class=""&gt;&lt;/label&gt;
+
+</li>
+            <li>&lt;input id="" class="" type="" value="" placeholder="" /&gt;
+
+</li>
+            <li>&lt;textarea id="" class="" type="" value="" placeholder=""&gt;&lt;/textarea&gt;
+
+</li>
+            <li>&lt;br&gt;
+
+</li>
+        </ol>
+    </div>
+    <textarea id="html" placeholder="Enter your HTML code..."></textarea>
+</div>
+<div id="cssTab" class="tabcontent">
+    <div class="editor-shortcuts">
+        <ol onclick="addCss(event)">
+            <li># { }</li>
+            <li>. { }</li>
+            <li>input[type="text"] { 
+
+}
+</li>
+            <li>input[type="number"] { 
+
+}
+</li>
+            <li>input[type="date"] { 
+
+}
+</li>
+            <li>input[type="time"] { 
+
+}
+</li>
+            <li>input[type="datetime-local"] { 
+
+}
+</li>
+            <li>input[type="week"] { 
+
+}
+</li>
+            <li>input[type="month"] { 
+
+}
+</li>
+            <li>input[type="checkbox"] { 
+
+}
+</li>
+            <li>input[type="radio"] { 
+
+}
+</li>
+            <li>input[type="range"] { 
+
+}
+</li>
+            <li>input[type="email"] { 
+
+}
+</li>
+            <li>input[type="password"] { 
+
+}
+</li>
+            <li>input[type="file"] { 
+
+}
+</li>
+            <li>input[type="image"] { 
+
+}
+</li>
+            <li>input[type="reset"] { 
+
+}
+</li>
+            <li>input[type="search"] { 
+
+}
+</li>
+            <li>input[type="submit"] { 
+
+}
+</li>
+            <li>input[type="tel"] { 
+
+}
+</li>
+            <li>input[type="url"] { 
+
+}
+</li>
+            <li>input[type="hidden"] { 
+
+}
+</li>
+        </ol>
+    </div>
+    <textarea id="css" placeholder="Enter your CSS code..."></textarea>
+</div>
+<div id="jsTab" class="tabcontent">
+    <div class="editor-shortcuts">
+        <ol onclick="addJs(event)">
+            <li>let  =  ;
+</li>
+            <li>const  =  ;
+</li>
+            <li>function FUNCTION_NAME () =&gt; {
+
+};
+</li>
+        </ol>
+    </div>
+    <textarea id="js" placeholder="Enter your JavaScript code..."></textarea>
+</div>
+
+<iframe id="code"></iframe>
+</div>
+
+<script>
+    document.getElementById("defaultOpen").click();
+    function openEditor(evt, tabName) {
+        var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
+    
+    function addText(event) {
+    var targ = event.target || event.srcElement;
+    document.getElementById("html").value += targ.textContent || targ.innerText;
+}
+    
+    function addCss(event) {
+    var targ = event.target || event.srcElement;
+    document.getElementById("css").value += targ.textContent || targ.innerText;
+}
+    
+    function addJs(event) {
+    var targ = event.target || event.srcElement;
+    document.getElementById("js").value += targ.textContent || targ.innerText;
+}
+</script>
+
+<script src="/js/code-editor.js"></script>
