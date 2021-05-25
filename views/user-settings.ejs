@@ -1,7 +1,7 @@
 <style>
 
 </style>
-<h3><%= user %></h3>
+
 <div class="form-container">
     <form action="/users/<%= user.id %>/settings?_method=PATCH" method="post">
         <input type="text" value="<%= user.profile_image %>" name="profile_image" placeholder="URL to Image">
