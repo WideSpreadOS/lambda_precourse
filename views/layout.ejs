@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+    <div id="videoBackground">
+        <video id="bgVid" src="/videos/Dots.mp4" muted autoplay loop></video>
+        <div class="filter-dark"></div>
+    </div>
     <div id="mainHeader">
         <div class="header-section header-left">
             <img src="/images/lambda-logo.png" alt="Lambda Logo">
@@ -31,7 +35,7 @@
             <li><a href="/flashcards">Flashcards</a></li>
             <li><a href="/typing">Typing</a></li>
             <li><a href="/social">Socialize</a></li>
-            <li><a href=""></a></li>
+            <li><a href="#">Settings</a></li>
             <li><a href=""></a></li>
         </ul>
         <div class="logout">
@@ -41,5 +45,9 @@
     <div class="container">
         <%- body %>
     </div>
+    <script>
+        const vid = document.getElementById("bgVid");
+        vid.playbackRate = 0.4;
+    </script>
 </body>
 </html>

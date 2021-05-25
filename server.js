@@ -23,7 +23,7 @@ mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true, useFindAn
 const app = express();
 
 // Middleware
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 
 
@@ -66,8 +66,9 @@ app.get('/', (req, res) => {
 app.get('/dashboard', ensureAuthenticated, async (req, res) => {
     const userId = req.user._id;
     const user = await User.findById(userId);
+    const allUsers = await User.find();
     console.log(`User logged in: ${user}`);
-    res.render('dashboard', {user, title:"Dashboard"});
+    res.render('dashboard', {user, allUsers, title:"Dashboard"});
 });
 
 

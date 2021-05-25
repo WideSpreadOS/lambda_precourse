@@ -61,6 +61,7 @@ h1 {
 #mainMenu li {
     list-style: none;
     height: 30px;
+    margin-left: -25px;
 }
 #mainMenu a {
     color: rgba(255, 255, 255, 0.75);
@@ -68,12 +69,40 @@ h1 {
     text-decoration: none;
     font-size: 1.2rem;
 }
+
+/* Background Video */
+#videoBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #000;
+    z-index: -88;
+}
+#videoBackground video {
+    min-width: 100vw;
+    
+    min-height: 100vh;
+    max-height: 100vh;
+}
+
+.core-container {
+    background: rgba(238, 238, 238, 0.315);
+    position: fixed;
+    top: 30%;
+    left: 30%;
+    z-index: 23423;
+}
 /* Main Container */
 .container {
-    background: #333;
-    background-image: url("https://4.bp.blogspot.com/-Px99__SAlNY/V0zUPjSoZhI/AAAAAAAAGMI/FmpAbDjhdXEoxRJIPjrVcBPsdxQx-_IGwCKgB/s1600/red-black-white-abstract-wallpaper.jpg");
+    /* background: #333; */
+/*     background-image: url("https://4.bp.blogspot.com/-Px99__SAlNY/V0zUPjSoZhI/AAAAAAAAGMI/FmpAbDjhdXEoxRJIPjrVcBPsdxQx-_IGwCKgB/s1600/red-black-white-abstract-wallpaper.jpg");
     background-size: cover;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px); */
     position: fixed;
     top: 100px;
     left: 200px;
@@ -88,7 +117,16 @@ h1 {
     padding-bottom: 50px;
 
 }
-
+.filter-dark {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+}
 
 .logout {
     background-image: linear-gradient(to bottom, #eee, #fff);
@@ -109,6 +147,19 @@ h1 {
 
 
 /* Pages */
+.page-title {
+    width: 100%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+    border-bottom: groove 2px #fff;
+    margin-left: 0;
+}
+.page-title h1 {
+    color: crimson;
+    font-weight: bolder;
+    font-size: 2rem;
+}
 .page-header {
     background-image: linear-gradient(to bottom, #eee, #fff);
     width: 80%;
@@ -127,10 +178,31 @@ h1 {
     font-weight: bold;
 }
 
+
+/* Link Tray */
+.link-tray {
+    margin-top: 40px;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.5rem;
+}
+.link-tray a {
+    color: crimson;
+    text-decoration: none;
+    text-shadow: 0 0 2px #fff;
+    transition: ease-out 0.5s;
+}
+.link-tray a:hover {
+    color: #fff;
+    transition: ease-in 0.3s;
+}
 /* Glassmorphism */
 .glass {
     padding: 20px;
     background-image: linear-gradient(to bottom right, rgba(238, 238, 238, 0.3), rgba(255, 255, 255, 0.4), rgba(238, 238, 238, 0.3));
+}
+.frosted-glass {
+    backdrop-filter: blur(4px);
 }
 /* Neomorphism */
 

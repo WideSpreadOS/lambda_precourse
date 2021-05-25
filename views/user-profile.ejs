@@ -1,0 +1,13 @@
+<style>
+
+</style>
+
+<div id="userProfile">
+    <h1><%= user.fname %>  <%= user.lname %>'s Profile</h1>
+
+    <%= user %>
+
+    <div class="user-card">
+        <p><a href="mailto:<%= user.email %>"><%= user.email %></a></p>
+    </div>
+</div>

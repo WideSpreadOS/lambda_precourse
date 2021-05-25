@@ -52,9 +52,17 @@
     }
     .friend-data h5 {
         margin-block-start: 5px;
-        padding: 8px;
-        padding-top: 2px;
+        margin-block-end: 0;
         font-size: 1rem;
+    }
+    .friend-data p {
+        margin-block-start: 5px;
+        margin-block-end: 0;
+        padding-top: 0;
+        margin-left: 8px;
+    }
+    .friend-data a {
+        margin-left: 5px;
     }
 
 </style>
@@ -68,50 +76,19 @@
 <div class="">
     <div id="userFriendList">
         <h3>Your Team</h3>
-
-        <a href="#">
-            <div class="user-friend square-neo">
-                <div class="friend-image round-neo">
-                    <img src="/images/system/default-user-avatar.png" alt="Default User">
+        <% allUsers.forEach(function(user) { %>
+            <a href="/users/<%= user.id %>">
+                <div class="user-friend square-neo">
+                    <div class="friend-image round-neo">
+                        <img src="/images/system/default-user-avatar.png" alt="Default User">
+                    </div>
+                    <div class="friend-data square-neo-inset">
+                        <h5><%= user.fname %> <%= user.lname %></h5>
+                        <p style="font-size: 1.5rem;"><a href="mailto:<%= user.email %>" target="_blank"><i class="far fa-envelope"></i></a><a href="https://github.com/WideSpreadOS" target="_blank"><i class="fab fa-github-square"></i></a></p>
+                    </div>
                 </div>
-                <div class="friend-data square-neo-inset">
-                    <h5>Jonathan Olson</h5>
-                </div>
-            </div>
-        </a>
-
-        <a href="#">
-            <div class="user-friend square-neo">
-                <div class="friend-image round-neo">
-                    <img src="/images/system/default-user-avatar.png" alt="Default User">
-                </div>
-                <div class="friend-data square-neo-inset">
-                    <h5>Teammate 2</h5>
-                </div>
-            </div>
-        </a>
-
-        <a href="#">
-            <div class="user-friend square-neo">
-                <div class="friend-image round-neo">
-                    <img src="/images/system/default-user-avatar.png" alt="Default User">
-                </div>
-                <div class="friend-data square-neo-inset">
-                    <h5>Teammate 3</h5>
-                </div>
-            </div>
-        </a>
-
-        <a href="#">
-            <div class="user-friend square-neo">
-                <div class="friend-image round-neo">
-                    <img src="/images/system/default-user-avatar.png" alt="Default User">
-                </div>
-                <div class="friend-data square-neo-inset">
-                    <h5>Teammate 4</h5>
-                </div>
-            </div>
-        </a>
-
+            </a>
+        <% }) %>
+      
     </div>
 </div>

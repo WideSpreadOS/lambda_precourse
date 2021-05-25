@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+const axios = require('axios');
 
 
 const User = require('../models/User');
@@ -103,5 +104,35 @@ router.get('/logout', (req, res) => {
     res.redirect('/users/login')
 });
 
+// Generate Face User Avatar
+router.get('/ai-user', async (req, res) => {
+    const apiKey = process.env.AI_AVATARS;
+	const options = {
+  method: 'GET',
+  url: `https://api.generated.photos/api/v1/faces?api_key=${apiKey}&age=young-adult&per_page=1`
+};
+
+await axios.request(options).then(function (response) {
+    const returnedData = response.data.faces[0].urls;
+    /* const aiUser = JSON.stringify(returnedData[4]); */
+    const aiUser = returnedData[4];
+    const aiAvatarString = JSON.stringify(Object.values(aiUser));
+    const aiAvatarStringLength = (aiAvatarString.length - 4);
+
+    const aiAvatar = aiAvatarString.substr(2, aiAvatarStringLength)
+
+    res.render('ai-user', {aiAvatar});
+}).catch(function (error) {
+	console.error(error);
+});
+});
+
+router.get('/:userId', async (req, res) => {
+    const userId = req.params.userId;
+    const user = await User.findById(userId);
+    console.log(`User: ${user}`)
+    res.render('user-profile', {user});
+
+});
 
 module.exports = router;

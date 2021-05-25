@@ -47,10 +47,10 @@
 }
 /* Main Container */
 .container {
-    background: #333;
+/*     background: #333;
     background-image: url("https://4.bp.blogspot.com/-Px99__SAlNY/V0zUPjSoZhI/AAAAAAAAGMI/FmpAbDjhdXEoxRJIPjrVcBPsdxQx-_IGwCKgB/s1600/red-black-white-abstract-wallpaper.jpg");
     background-size: cover;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px); */
     position: fixed;
     top: 100px;
     left: 0;
@@ -65,15 +65,52 @@
     padding: 10px;
 
 }
+.create-account {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 100px;
+    border-radius: 8px;
+}
+.create-account form {
+    width: 90%;
+    margin-left: 5%;
+    text-align: center;
+}
+.input-data {
+    padding: 5px;
+    text-align: center;
+}
+.input-data label {
+    margin-right: 20px;
+}
+.input-data input {
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    padding: 5px;
+}
+.create-account button {
+    background: rgba(220, 20, 60, 0.5);
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-top: 30px;
+    border-radius: 6px;
+    cursor: pointer;
+}
 </style>
 
-<h1><%= title %></h1>
+<div class="page-title">
+    <h1><%= title %></h1>
+</div>
 
-<div class="create-account">
+<div class="create-account glass frosted-glass">
     <form action="/users/register" method="POST">
         <div class="input-data">
 
-            <label for="name" style="color: #fff"> First Name</label>
+            <label for="name" style="color: #fff;"> First Name</label>
             <input
             type="name"
             id="fname"
@@ -139,4 +176,8 @@
           <button type="submit">Register <i class="fas fa-sign-in-alt"></i></button>
 
     </form>
+</div>
+
+<div class="link-tray">
+    <p>Already have an account? <a href="/users/login">Login Here</a></p>
 </div>

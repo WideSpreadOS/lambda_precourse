@@ -98,6 +98,45 @@
     #js::placeholder {
         color: lawngreen;
     }
+
+    #divId {
+        background: lime;
+        max-height: 50px;
+        max-width: 50px;
+        position: relative;
+
+    }
+    #divId::before {
+        content: '#div';
+        background: blue;
+        width: 75px;
+        font-size: 1.2rem;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        overflow: hidden;
+    }
+    #divClass {
+        background: lime;
+        position: absolute;
+        max-height: 50px;
+        max-width: 50px;
+        position: relative;
+
+    }
+    #divClass::before {
+        content: '.div';
+        background: blue;
+        width: 75px;
+        font-size: 1.2rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+
 </style>
 
 <h1><%= title %></h1>
@@ -112,11 +151,11 @@
 <div id="htmlTab" class="tabcontent">
     <div class="editor-shortcuts">
         <ol onclick="addText(event)">
-            <li>&lt;div id=""&gt;
+            <li id="divId">&lt;div id=""&gt;
 
 &lt;/div&gt;
 </li>
-            <li>&lt;div class=""&gt;
+            <li id="divClass">&lt;div class=""&gt;
 
 &lt;/div&gt;
 </li>
