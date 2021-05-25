@@ -128,7 +128,7 @@ await axios.request(options).then(function (response) {
 });
 });
 
-router.get('/:userId/settings', async (req, res) => {
+router.get('/:userId/settings', ensureAuthenticated, async (req, res) => {
     const userId = req.user._id;
     const user = await User.findById(userId);
     console.log(`User: ${user}`)
