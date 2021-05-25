@@ -1,5 +1,86 @@
 <style>
 
+    .add-notebook {
+        width: 100%;
+        padding-bottom: 30px;
+    }
+    .add-notebook form {
+        width: 80%;
+        margin: 10px;
+    }
+    .add-notebook input {
+
+    }
+    .hidden {
+        display: none;
+    }
+    .notebooks {
+        display: flex;
+    }
+    .notebook {
+        padding: 10px;
+        padding-top: 0;
+        width: 300px;
+        min-height: 200px;
+        margin-left: 20px;
+        border-radius: 12px;
+        border: 2px outset rgba(255, 255, 255, 0.5);
+    }
+    
+    .notebook-header {
+    }
+    .notebook-header a {
+        text-decoration: none;
+        color: #fff;
+        text-shadow: 0 0 2px #fff;
+    }
+    .note-list {
+        max-height: 300px;
+        min-height: 300px;
+        height: 300px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding: 5px;
+    }
+    .note {
+        padding: 5px;
+        border-radius: 8px;
+        margin-top: 10px;
+
+    }
+    .add-new-note {
+        padding: 5px;
+    }
+    .add-new-note input {
+        max-width: 37%;
+        outline: none;
+        border: none;
+        border-radius: 6px;
+        padding: 5px;
+    }
+    .add-new-note input[type="color"] {
+        width: 10%;
+    }
+    .add-new-note textarea {
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 8px;
+        outline: none;
+        border: none;
+        border-radius: 6px;
+        padding: 5px;
+    }
+    .add-new-note button {
+        background: crimson;
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 8px;
+        padding: 8px;
+        outline: none;
+        border: none;
+        border-radius: 6px;
+        color: #fff;
+    }
 </style>
 
 <div class="page-title">
@@ -9,7 +90,7 @@
 <div class="add-notebook">
     <h4>Add a New Notebook</h4>
     <form action="/your-desk/<%= user.id %>/new-notebook" method="POST">
-        <input type="text" name="notebookOwner" hidden value="<%= user.id %>">
+        <input type="text" name="notebookOwner" value="<%= user.id %>" hidden class="hidden">
         <input type="text" name="notebookName" placeholder="Name of Notebook">
         <textarea name="notebookDescription" placeholder="Add a descripition of your notebook"></textarea>
         <p>Notebook Color:</p>
@@ -18,16 +99,20 @@
     </form>
 </div>
 
+<h1>Your Notebooks</h1>
 <div class="notebooks">
-    <h1>Your Notebooks</h1>
     <% notebooks.forEach(function(notebook) { %>
-        <div class="notebook" style="background: <%= notebook.notebookColor %>">
-            <h4><%= notebook.notebookName %></h4>
-            <hr>
-            <p><%= notebook.notebookDescription %></p>
+        <div class="notebook glass frosted-glass">
+            <div class="notebook-header">
+                <a href="/your-desk/<%= user.id %>/notebooks/<%= notebook.id %>" style="color: <%= notebook.notebookColor %>;">
+                    <h4><%= notebook.notebookName %></h4>
+                    <hr>
+                    <p><%= notebook.notebookDescription %></p>
+                </a>
+            </div>
             <div class="note-list">
                 <% notebook.notes.forEach(function(note) { %>
-                    <div class="note" style="background: <%= note.noteColor %>">
+                    <div class="note glass">
                         <h6><%= note.noteTitle %></h6>
                         <p><%= note.noteBody %></p>
                     </div>
@@ -37,8 +122,8 @@
                 <form action="/your-desk/<%= user.id %>/note/new/<%= notebook.id %>" method="POST">
                     <input type="text" name="noteTitle" placeholder="Note Title">
                     <input type="text" name="noteCategory" placeholder="Note Category">
-                    <textarea name="noteBody" placeholder="Note..."></textarea>
                     <input type="color" name="noteColor">
+                    <textarea name="noteBody" placeholder="Note..."></textarea>
                     <button type="submit">Add Note</button>
                 </form>
             </div>

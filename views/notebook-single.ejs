@@ -1,0 +1,64 @@
+<style>
+    .notebook-header {
+        background: rgba(255, 255, 255, 0.3);
+        padding: 10px;
+
+    }
+    #notes {
+        display: flex;
+        padding: 20px;
+    }
+    .note {
+        padding: 10px;
+        padding-top: 0;
+        width: 300px;
+        min-height: 200px;
+        margin-left: 20px;
+        border-radius: 12px;
+        border: 2px outset rgba(255, 255, 255, 0.5);
+    }
+    .note-menu-item {
+        color: crimson;
+    }
+    .note-header {
+        border-bottom: groove 2px rgba(255, 255, 255, 0.5);
+    }
+    .note-header h3 {
+    }
+    .note-body {
+        padding: 8px;
+    }
+</style>
+
+<div id="notebookContainer">
+    
+
+    <div class="notebook">
+        
+        <div class="notebook-header">
+            <h2><%= notebook.notebookName %></h2>
+            <p><%= notebook.notebookDescription %></p>
+        </div>
+        <div id="notes">
+            <% notes.forEach(function(note) { %>
+
+                <div class="note glass frosted-glass" style="box-shadow: inset 0 0 6px <%= note.noteColor %>;">
+                    <div class="note-menu">
+                        <div class="note-menu-item">
+                            <p><i class="far fa-edit"></i></p>
+                        </div>
+                    </div>
+                    <div class="note-header">
+                        <h3 style="color: <%= note.noteColor %>"><%= note.noteTitle %></h3>
+                        <h5><%= note.noteCategory %></h5>
+                    </div>
+                    <div class="note-body">
+                        <p><%= note.noteBody %></p>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+        
+    </div>
+
+</div>

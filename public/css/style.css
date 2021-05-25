@@ -50,7 +50,8 @@ h1 {
     max-width: 200px;
     min-width: 200px;
     height: 100vh;
-    background: #111;
+    background-image: linear-gradient(to bottom right, rgba(238, 238, 238, 0.3), rgba(255, 255, 255, 0.4), rgba(238, 238, 238, 0.3));
+    backdrop-filter: blur(4px);
     position: fixed;
     border-right: inset 1px red;
     box-shadow: 0 0 10px #000;
@@ -200,6 +201,7 @@ h1 {
 .glass {
     padding: 20px;
     background-image: linear-gradient(to bottom right, rgba(238, 238, 238, 0.3), rgba(255, 255, 255, 0.4), rgba(238, 238, 238, 0.3));
+    border: 2px outset rgba(255, 255, 255, 0.5);
 }
 .frosted-glass {
     backdrop-filter: blur(4px);

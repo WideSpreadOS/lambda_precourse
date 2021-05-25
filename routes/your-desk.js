@@ -67,5 +67,17 @@ router.post('/:userId/note/new/:notebookId', async (req, res) => {
         }
         )
         res.redirect(req.get('referer'));
-})
+});
+
+// Notebook Page
+router.get('/:userId/notebooks/:notebookId', ensureAuthenticated, async (req, res) => {
+    const userId = req.params.userId;
+    const notebookId = req.params.notebookId;
+    const user = req.user._id;
+    const notebook = await Notebook.findById(notebookId).populate('notes').exec()
+    const notes = await Note.find({noteFrom: {$eq: notebookId}});
+    
+    res.render('notebook-single', {user, notebook, notes, title: 'Current Notebook'});
+});
+
 module.exports = router;
