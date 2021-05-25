@@ -34,11 +34,13 @@
     .friend-image {
         max-width: 100px;
         width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
     }
     .friend-image img {
         width: 100px;
-        height: 100%;
-        border-radius: 50%;
+        min-height: 100px;
     }
     .friend-data {
         width: 165px;
@@ -80,11 +82,12 @@
             <a href="/users/<%= user.id %>">
                 <div class="user-friend square-neo">
                     <div class="friend-image round-neo">
-                        <img src="/images/system/default-user-avatar.png" alt="Default User">
+
+                        <img src="<%= user.profile_image %>" alt="User Avatar">
                     </div>
                     <div class="friend-data square-neo-inset">
                         <h5><%= user.fname %> <%= user.lname %></h5>
-                        <p style="font-size: 1.5rem;"><a href="mailto:<%= user.email %>" target="_blank"><i class="far fa-envelope"></i></a><a href="https://github.com/WideSpreadOS" target="_blank"><i class="fab fa-github-square"></i></a></p>
+                        <p style="font-size: 1.5rem;"><a href="<%= user.social.widespread %>" target="_blank"><img src="/images/system/ws_logo.jpg" alt="" width="25px" height="25px"></a><a href="mailto:<%= user.email %>" target="_blank"><i class="far fa-envelope"></i></a><a href="https://github.com/WideSpreadOS" target="_blank"><i class="fab fa-github-square"></i></a></p>
                     </div>
                 </div>
             </a>

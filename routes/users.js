@@ -3,9 +3,10 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const axios = require('axios');
-
+const methodOverride = require('method-override');
 
 const User = require('../models/User');
+const { ensureAuthenticated } = require('../config/auth');
 
 // Login Page
 router.get('/login', (req, res) => {
@@ -126,6 +127,31 @@ await axios.request(options).then(function (response) {
 	console.error(error);
 });
 });
+
+router.get('/:userId/settings', async (req, res) => {
+    const userId = req.params.userId;
+    const user = await User.findById(userId);
+    console.log(`User: ${user}`)
+    res.render('user-settings', {user});
+
+});
+
+router.post('/:userId/settings', ensureAuthenticated, async (req, res, next) => {
+    const userId = req.params.userId;
+    try {
+        const id = req.user._id;
+        const updates = req.body;
+        const options = {new: true};
+        await User.findByIdAndUpdate(id, updates, options);
+    
+        res.redirect(`/users/${userId}/settings`);
+    
+    
+    } catch (error) {
+        console.log(error);
+    }
+    
+})
 
 router.get('/:userId', async (req, res) => {
     const userId = req.params.userId;

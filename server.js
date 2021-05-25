@@ -6,6 +6,7 @@ const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const flash = require('connect-flash');
+const methodOverride = require('method-override');
 
 const User = require('./models/User');
 
@@ -58,6 +59,7 @@ app.use((req, res, next) => {
     next();
 })
 app.use('/users', require('./routes/users'));
+app.use('/your-desk', require('./routes/your-desk'));
 
 app.get('/', (req, res) => { 
     res.render('welcome',{title:"Welcome"});
@@ -72,8 +74,10 @@ app.get('/dashboard', ensureAuthenticated, async (req, res) => {
 });
 
 
-app.get('/desk', ensureAuthenticated, (req, res) => { 
-    res.render('student-desk',{/* user: , */title:"Your Desk"});
+app.get('/desk', ensureAuthenticated, async (req, res) => { 
+    const userId = req.user._id;
+    const user = await User.findById(userId)
+    res.render('student-desk',{user, title:"Your Desk"});
 });
 
 app.get('/classroom', ensureAuthenticated, (req, res) => { 

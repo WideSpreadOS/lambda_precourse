@@ -1,0 +1,32 @@
+<style>
+
+</style>
+<h3><%= user %></h3>
+<div class="form-container">
+    <form action="/users/<%= user.id %>/settings?_method=PATCH" method="post">
+        <input type="text" value="<%= user.profile_image %>" name="profile_image" placeholder="URL to Image">
+        <input type="color" value="<%= user.fav_color %>" name="fav_color" placeholder="Favorite Color">
+        <div class="two-radios">
+            <input type="radio" id="dark" name="ui_mode" value="dark">
+            <label for="dark">Dark Mode</label><br>
+            <input type="radio" id="light" name="ui_mode" value="light">
+            <label for="light">Light Mode</label><br>
+        </div>
+        <label for="dob">Date of Birth</label>
+        <input type="date" value="<%= user.dob %>" name="dob" id="dob">
+        <input type="text" value="<%= user.bio %>" name="bio" placeholder="Add a Bio">
+        <input type="text" value="<%= user.city %>" name="city" placeholder="City">
+        <input type="text" value="<%= user.state %>" name="state" placeholder="State">
+        <input type="text" value="<%= user.country %>" name="country" placeholder="Country">
+        <input type="text" value="<%= user.zip %>" name="zip" placeholder="Zip">
+        <input type="text" value="<%= user.phone %>" name="phone" placeholder="Phone">
+        <input type="url" value="<%= user.social.slack %>" name="social.slack" placeholder="Slack">
+        <input type="url" value="<%= user.social.zoom %>" name="social.zoom" placeholder="Zoom">
+        <input type="url" value="<%= user.social.github %>" name="social.github" placeholder="Github">
+        <input type="url" value="<%= user.social.linkedin %>" name="social.linkedin" placeholder="LinkedIn">
+        <input type="url" value="<%= user.social.stack_overflow %>" name="social.stack_overflow" placeholder="Stack Overflow">
+        <input type="url" value="<%= user.social.widespread %>" name="social.widespread" placeholder="WideSpread">
+        <button type="submit">Update</button>
+    </form>
+
+</div>
