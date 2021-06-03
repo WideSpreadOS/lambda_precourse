@@ -51,13 +51,16 @@
     }
     .notebooks {
         display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-width: 90%;
     }
     .notebook {
         padding: 10px;
         padding-top: 0;
         width: 300px;
         min-height: 200px;
-        margin-left: 20px;
+        margin: 20px;
         border-radius: 12px;
         border: 2px outset rgba(255, 255, 255, 0.5);
     }
@@ -124,9 +127,10 @@
 <div class="header-title">
     <h1>Add a New Notebook</h1>
 </div>
+
 <div class="add-notebook glass">
     <h4>Add a New Notebook</h4>
-    <form action="/your-desk/<%= user.id %>/new-notebook" method="POST">
+    <form action="/your-desk/new-notebook" method="POST">
         <input type="text" name="notebookOwner" value="<%= user.id %>" hidden class="hidden">
         <input type="text" name="notebookName" placeholder="Name of Notebook">
         <textarea name="notebookDescription" placeholder="Add a descripition of your notebook"></textarea>
@@ -135,6 +139,7 @@
         <button type="submit">Add Notebook</button>
     </form>
 </div>
+
 <div class="header-title">
     <h1>Your Notebooks</h1>
 </div>
@@ -142,27 +147,27 @@
     <% notebooks.forEach(function(notebook) { %>
         <div class="notebook glass frosted-glass">
             <div class="notebook-header">
-                <a href="/your-desk/<%= user.id %>/notebooks/<%= notebook.id %>" style="color: <%= notebook.notebookColor %>;">
+                <a href="/your-desk/notebooks/<%= notebook.id %>" style="color: <%= notebook.notebookColor %>;">
                     <h4><%= notebook.notebookName %></h4>
                     <hr>
                     <p><%= notebook.notebookDescription %></p>
                 </a>
             </div>
             <div class="note-list">
-                <% notebook.notes.forEach(function(note) { %>
+                <% notebook.sections.forEach(function(section) { %>
                     <div class="note glass">
-                        <h6><%= note.noteTitle %></h6>
-                        <p><%= note.noteBody %></p>
+                        <h6><%= section.sectionName %></h6>
+                        <p><%= section.sectionDescription %></p>
                     </div>
                 <% }) %>
             </div>
             <div class="add-new-note">
-                <form action="/your-desk/<%= user.id %>/note/new/<%= notebook.id %>" method="POST">
-                    <input type="text" name="noteTitle" placeholder="Note Title">
-                    <input type="text" name="noteCategory" placeholder="Note Category">
+                <form action="/your-desk/notebooks/<%= notebook.id %>/section/new" method="POST">
+                    <input type="text" name="sectionName" placeholder="Section Title">
+                    <input type="text" name="sectionTags" placeholder="Section Tags">
                     <input type="color" name="noteColor">
-                    <textarea name="noteBody" placeholder="Note..."></textarea>
-                    <button type="submit">Add Note</button>
+                    <textarea name="sectionDescription" placeholder="Section descripition..."></textarea>
+                    <button type="submit">Add Section</button>
                 </form>
             </div>
         </div>

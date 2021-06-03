@@ -1,10 +1,8 @@
 const mongoose = require('mongoose'); 
   
 const noteSchema = new mongoose.Schema({ 
-    noteFrom: {type: mongoose.Schema.Types.ObjectId, ref: 'NoteCollection'},
-    noteTitle: {
-        type: String
-    },
+    noteFrom: {type: mongoose.Schema.Types.ObjectId, ref: 'NotebookSection'},
+    noteTitle: String,
     noteCategory: String,
     noteTags: [String],
     noteColor: String,

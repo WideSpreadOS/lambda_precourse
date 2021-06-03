@@ -139,8 +139,18 @@
 
 </style>
 
-<h1><%= title %></h1>
+<div class="page-title">
 
+    <h1><%= title %></h1>
+    <%- include('partials/code-menu') %>
+</div>
+
+<div class="code-menu">
+    <ul>
+        <li><a href="/code/save">Save</a></li>
+        <li><a href="/code/share">Share</a></li>
+    </ul>
+</div>
 
 <div class="tab">
     <button class="tablinks" id="defaultOpen" onclick="openEditor(event, 'htmlTab')">HTML</button>
@@ -317,6 +327,9 @@
 </div>
 
 <script>
+
+
+
     document.getElementById("defaultOpen").click();
     function openEditor(evt, tabName) {
         var i, tabcontent, tablinks;
@@ -347,6 +360,12 @@
     var targ = event.target || event.srcElement;
     document.getElementById("js").value += targ.textContent || targ.innerText;
 }
+</script>
+
+<script>
+        const htmlData = document.getElementById('html').value();
+    console.log(`htmlData: ${htmlData}`);
+
 </script>
 
 <script src="/js/code-editor.js"></script>

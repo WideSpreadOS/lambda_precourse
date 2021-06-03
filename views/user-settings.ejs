@@ -3,7 +3,7 @@
 </style>
 
 <div class="form-container">
-    <form action="/users/<%= user.id %>/settings?_method=PATCH" method="post">
+    <form action="/users/settings?_method=PATCH" method="post">
         <input type="text" value="<%= user.profile_image %>" name="profile_image" placeholder="URL to Image">
         <input type="color" value="<%= user.fav_color %>" name="fav_color" placeholder="Favorite Color">
         <div class="two-radios">
@@ -13,7 +13,7 @@
             <label for="light">Light Mode</label><br>
         </div>
         <label for="dob">Date of Birth</label>
-        <input type="date" value="<%= user.dob %>" name="dob" id="dob">
+
         <input type="text" value="<%= user.bio %>" name="bio" placeholder="Add a Bio">
         <input type="text" value="<%= user.city %>" name="city" placeholder="City">
         <input type="text" value="<%= user.state %>" name="state" placeholder="State">

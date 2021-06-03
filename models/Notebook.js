@@ -11,7 +11,7 @@ const notebookSchema = new mongoose.Schema({
     notebookTags: [String],
     notebookColor: String,
     notebookImage: String,
-    notes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Note'}],
+    sections: [{type: mongoose.Schema.Types.ObjectId, ref: 'NotebookSection'}],
     notebookCreated: {type: Date, default: Date.now()}
 }); 
   

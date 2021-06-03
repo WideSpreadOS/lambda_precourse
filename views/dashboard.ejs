@@ -71,8 +71,13 @@
 
 
 <div class="page-header">
-    <h1><%= title %></h1>
-    <p>Welcome <%= user.fname %>!</p>
+    <div class="page-info">
+        <h1><%= title %></h1>
+        <p>Welcome <%= user.fname %>!</p>
+    </div>
+    <div class="user-info">
+        <a href="/users/settings"><i class="fas fa-user-cog"></i></a>
+    </div>
 </div>
 
 <div class="">

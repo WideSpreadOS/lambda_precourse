@@ -59,6 +59,7 @@ app.use((req, res, next) => {
     next();
 })
 app.use('/users', require('./routes/users'));
+app.use('/code', require('./routes/code'));
 app.use('/your-desk', require('./routes/your-desk'));
 
 app.get('/', (req, res) => { 
@@ -88,9 +89,6 @@ app.get('/project-manager', ensureAuthenticated, (req, res) => {
     res.render('project-manager',{/* user: , */title:"Project Manager"});
 });
 
-app.get('/code-editor', ensureAuthenticated, (req, res) => { 
-    res.render('code-editor',{/* user: , */title:"Code Editor"});
-});
 
 app.get('/resources', ensureAuthenticated, (req, res) => { 
     res.render('resources',{/* user: , */title:"Resources"});

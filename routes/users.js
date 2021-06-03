@@ -102,7 +102,7 @@ router.post('/login', (req, res, next) => {
 router.get('/logout', (req, res) => {
     req.logout();
     req.flash('success_msg', 'You are logged out');
-    res.redirect('/users/login')
+    res.redirect('/users/login');
 });
 
 // Generate Face User Avatar
@@ -126,17 +126,17 @@ await axios.request(options).then(function (response) {
 }).catch(function (error) {
 	console.error(error);
 });
+
 });
 
-router.get('/:userId/settings', ensureAuthenticated, async (req, res) => {
+router.get('/settings', ensureAuthenticated, async (req, res) => {
     const userId = req.user._id;
     const user = await User.findById(userId);
     console.log(`User: ${user}`)
     res.render('user-settings', {user});
-
 });
 
-router.post('/:userId/settings', ensureAuthenticated, async (req, res, next) => {
+router.post('/settings', ensureAuthenticated, async (req, res, next) => {
     const userId = req.user._id;
     try {
         const id = req.user._id;
@@ -144,21 +144,18 @@ router.post('/:userId/settings', ensureAuthenticated, async (req, res, next) => 
         const options = {new: true};
         await User.findByIdAndUpdate(id, updates, options);
     
-        res.redirect(`/users/${userId}/settings`);
-    
-    
+        res.redirect(`/users/settings`);
     } catch (error) {
         console.log(error);
-    }
-    
-})
+    } 
+});
+
 
 router.get('/:userId', async (req, res) => {
     const userId = req.params.userId;
     const user = await User.findById(userId);
     console.log(`User: ${user}`)
     res.render('user-profile', {user});
-
 });
 
 module.exports = router;

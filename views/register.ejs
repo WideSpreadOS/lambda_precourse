@@ -100,7 +100,11 @@
     border-radius: 6px;
     cursor: pointer;
 }
+
 </style>
+
+
+
 
 <div class="page-title">
     <h1>Register</h1>
@@ -171,6 +175,16 @@
             placeholder="Confirm Password"
             value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
             />
+
+          <div class="input-data">
+
+            <label for="dob" style="color: #fff">Date of Birth</label>
+            <input
+            type="date"
+            id="dob"
+            name="dob"
+            class="input-control login-input"
+            />
           </div>
 
           <button type="submit">Register <i class="fas fa-sign-in-alt"></i></button>
@@ -181,3 +195,5 @@
 <div class="link-tray">
     <p>Already have an account? <a href="/users/login">Login Here</a></p>
 </div>
+
+

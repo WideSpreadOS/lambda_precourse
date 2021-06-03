@@ -193,6 +193,20 @@ h1 {
     padding: 15px;
 }
 
+/* Breakpoint */
+.breakpoint {
+    padding: 5px;
+    width: 90%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.breakpoint hr {
+    border: outset 2px rgba(255, 255, 255, 0.75);
+    border-radius: 50%;
+    box-shadow: 0 0 8px 10px rgba(255, 0, 0, 0.25);
+}
+
 /* Link Tray */
 .link-tray {
     margin-top: 40px;
@@ -203,11 +217,11 @@ h1 {
 .link-tray a {
     color: crimson;
     text-decoration: none;
-    text-shadow: 0 0 2px #fff;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
     transition: ease-out 0.5s;
 }
 .link-tray a:hover {
-    color: #fff;
+    color: rgba(255, 255, 255, 0.75);
     transition: ease-in 0.3s;
 }
 /* Glassmorphism */
@@ -225,10 +239,20 @@ h1 {
     border-radius: 50%;
     box-shadow: -5px -5px 6px #fff, -4px -4px 5px #ddd, 2px -3px 4px #ccc, -2px 3px 4px #ccc, 5px 5px 6px #bbb;
 }
+.round-glass-neo {
+    border-radius: 50%;
+    box-shadow: -5px -5px 6px rgba(255, 255, 255, 0.5), -4px -4px 5px rgba(221, 221, 221, 0.5), 2px -3px 4px rgba(204, 204, 204, 0.5), -2px 3px 4px rgba(204, 204, 204, 0.5), 5px 5px 6px rgba(187, 187, 187, 0.5);
+    border: outset 2px rgba(255, 255, 255, 0.75);
+}
 .square-neo {
     border-radius: 12px;
     box-shadow: -5px -5px 6px #fff, -4px -4px 5px #ddd, 2px -3px 4px #ccc, -2px 3px 4px #ccc, 5px 5px 6px #bbb;
     
+}
+.square-glass-neo {
+    border-radius: 12px;
+    box-shadow: -5px -5px 6px rgba(255, 255, 255, 0.5), -4px -4px 5px rgba(221, 221, 221, 0.5), 2px -3px 4px rgba(204, 204, 204, 0.5), -2px 3px 4px rgba(204, 204, 204, 0.5), 5px 5px 6px rgba(187, 187, 187, 0.5);
+    border: outset 2px rgba(255, 255, 255, 0.75);
 }
 .square-neo-inset {
     border-radius: 8px;
